@@ -6,6 +6,8 @@ interface Props {
   description?: string;
 }
 
+const base = import.meta.env.BASE_URL;
+
 const { 
   title, 
   description = "AURA - The World's Fastest AI Secretary. A Digital Body Double with Hybrid Brain and Infinite Context by Encresa." 
@@ -25,7 +27,7 @@ const {
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/ic_launcher_512.png">
+  <meta property="og:image" content={`${base}assets/ic_launcher_512.png`}>
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -35,9 +37,10 @@ const {
   <title>{title}</title>
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/ic_launcher_512.png">
-  <link rel="apple-touch-icon" href="/assets/ic_launcher_512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href={`${base}assets/favicon_32.png`}>
+  <link rel="icon" type="image/png" sizes="512x512" href={`${base}assets/ic_launcher_512.png`}>
+  <link rel="apple-touch-icon" href={`${base}assets/ic_launcher_512.png`}>
+
   
   <!-- Fonts: Outfit, Manrope, Jura -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

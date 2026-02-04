@@ -1,19 +1,20 @@
 ---
 // Navigation Component - Updated with proper links
+const base = import.meta.env.BASE_URL;
 ---
 
 <nav class="navbar glass">
-  <a href="/" class="nav-brand">
-    <img src="/assets/icon_512.png" alt="AURA Logo" class="nav-logo">
+  <a href={base} class="nav-brand">
+    <img src={`${base}assets/icon_512.png`} alt="AURA Logo" class="nav-logo">
     <span class="nav-title">AURA</span>
   </a>
   <div class="nav-links">
-    <a href="/#features" class="nav-link">Features</a>
-    <a href="/#memory" class="nav-link">Memory</a>
-    <a href="/#tools" class="nav-link">Tools</a>
-    <a href="/#voice" class="nav-link">Voice</a>
+    <a href={`${base}#features`} class="nav-link">Features</a>
+    <a href={`${base}#memory`} class="nav-link">Memory</a>
+    <a href={`${base}#tools`} class="nav-link">Tools</a>
+    <a href={`${base}#voice`} class="nav-link">Voice</a>
   </div>
-  <a href="/initialize" class="btn btn-outline btn-small">
+  <a href={`${base}initialize`} class="btn btn-outline btn-small">
     <i data-lucide="terminal" class="btn-icon"></i>
     Initialize
   </a>
