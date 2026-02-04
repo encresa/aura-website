@@ -1,0 +1,227 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Initialize AURA | Waitlist">
+  <Navigation />
+  <main class="initialize-page">
+    <section class="waitlist-section">
+      <div class="waitlist-content">
+        <!-- Animated Lock Icon -->
+        <div class="lock-container">
+          <div class="lock-ring"></div>
+          <div class="lock-icon-wrapper glass">
+            <i data-lucide="lock" class="lock-icon"></i>
+          </div>
+          <div class="lock-pulse"></div>
+        </div>
+        
+        <h1 class="waitlist-title">Waitlist Closed</h1>
+        <p class="waitlist-subtitle">
+          We're currently at capacity. AURA is being fine-tuned for perfection.
+        </p>
+        
+        <div class="status-badge glass">
+          <i data-lucide="clock" class="status-icon"></i>
+          <span>Reopening Soon</span>
+        </div>
+        
+        <div class="waitlist-details glass">
+          <div class="detail-item">
+            <i data-lucide="beaker" class="detail-icon text-tether"></i>
+            <div class="detail-content">
+              <span class="detail-value">Private</span>
+              <span class="detail-label">Beta Access</span>
+            </div>
+          </div>
+          <div class="detail-divider"></div>
+          <div class="detail-item">
+            <i data-lucide="sparkles" class="detail-icon text-halo"></i>
+            <div class="detail-content">
+              <span class="detail-value">Alpha</span>
+              <span class="detail-label">Current Phase</span>
+            </div>
+          </div>
+        </div>
+        
+        <p class="waitlist-note">
+          <i data-lucide="info" class="note-icon"></i>
+          Invitations are being sent to early supporters. Stay tuned.
+        </p>
+        
+        <a href="/" class="btn btn-outline btn-large">
+          <i data-lucide="arrow-left" class="btn-icon"></i>
+          <span>Back to Home</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .initialize-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px var(--space-xl);
+  }
+  
+  .waitlist-section {
+    text-align: center;
+    max-width: 600px;
+  }
+  
+  .waitlist-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+  
+  .lock-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .lock-ring {
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--heartbeat);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: ring-rotate 20s linear infinite;
+  }
+  
+  .lock-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 77, 109, 0.1);
+    border-color: var(--heartbeat);
+  }
+  
+  .lock-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--heartbeat);
+  }
+  
+  .lock-pulse {
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    background: var(--heartbeat);
+    opacity: 0.1;
+    animation: core-breathe 4s ease-in-out infinite;
+  }
+  
+  .waitlist-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    background: linear-gradient(135deg, var(--gray-100), var(--heartbeat));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .waitlist-subtitle {
+    font-size: 1.25rem;
+    color: var(--gray-400);
+    max-width: 400px;
+  }
+  
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    color: var(--warning);
+    border-color: rgba(234, 179, 8, 0.3);
+    background: rgba(234, 179, 8, 0.1);
+  }
+  
+  .status-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .waitlist-details {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xl);
+    padding: var(--space-lg) var(--space-2xl);
+    border-radius: var(--radius-xl);
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+  
+  .detail-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--gray-400);
+  }
+  
+  .detail-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .detail-value {
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-100);
+  }
+  
+  .detail-label {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+  }
+  
+  .detail-divider {
+    width: 1px;
+    height: 50px;
+    background: var(--glass-border);
+  }
+  
+  .waitlist-note {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    font-style: italic;
+  }
+  
+  .note-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+  }
+  
+  @keyframes ring-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes core-breathe {
+    0%, 100% { transform: scale(1); opacity: 0.1; }
+    50% { transform: scale(1.2); opacity: 0.05; }
+  }
+</style>

@@ -1,0 +1,210 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "AURA - The World's Fastest AI Secretary. A Digital Body Double with Hybrid Brain and Infinite Context by Encresa." 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <meta name="keywords" content="AI Secretary, AURA, Encresa, Digital Body Double, AI Assistant, Productivity">
+  <meta name="author" content="Encresa">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/ic_launcher_512.png">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  
+  <title>{title}</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/ic_launcher_512.png">
+  <link rel="apple-touch-icon" href="/assets/ic_launcher_512.png">
+  
+  <!-- Fonts: Outfit, Manrope, Jura -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Ambient Background with Parallax -->
+  <div class="ambient-background" data-parallax-bg>
+    <div class="orb orb-1" data-parallax="0.02"></div>
+    <div class="orb orb-2" data-parallax="0.03"></div>
+    <div class="orb orb-3" data-parallax="0.015"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <slot />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" is:inline></script>
+  
+  <!-- Parallax & Scroll Reveal Script -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Lucide icons
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+      
+      // ========== Parallax Effect ==========
+      const parallaxElements = document.querySelectorAll('[data-parallax]');
+      const parallaxBg = document.querySelector('[data-parallax-bg]');
+      
+      let ticking = false;
+      let scrollY = 0;
+      
+      function updateParallax() {
+        parallaxElements.forEach(el => {
+          const speed = parseFloat(el.dataset.parallax) || 0.1;
+          const yOffset = scrollY * speed;
+          el.style.transform = `translate3d(0, ${yOffset}px, 0)`;
+        });
+        ticking = false;
+      }
+      
+      window.addEventListener('scroll', () => {
+        scrollY = window.pageYOffset;
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+      
+      // ========== Scroll Reveal with 3D Effects ==========
+      const revealItems = document.querySelectorAll('.reveal-item');
+      const revealSections = document.querySelectorAll('.reveal-section');
+      
+      // Initial state for reveal items
+      revealItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'perspective(1000px) translateZ(-50px) translateY(40px) rotateX(10deg)';
+        item.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      });
+      
+      // Intersection Observer for sections
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const items = entry.target.querySelectorAll('.reveal-item');
+            items.forEach((item, index) => {
+              const delay = parseInt(item.dataset.delay) || (index * 100);
+              setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'perspective(1000px) translateZ(0) translateY(0) rotateX(0)';
+              }, delay);
+            });
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      revealSections.forEach(section => sectionObserver.observe(section));
+      
+      // ========== Hero Section Parallax Depth ==========
+      const heroContent = document.querySelector('.hero-content');
+      const auraCore = document.querySelector('.aura-core');
+      
+      if (heroContent && auraCore) {
+        window.addEventListener('scroll', () => {
+          const scrolled = window.pageYOffset;
+          const heroHeight = window.innerHeight;
+          const progress = Math.min(scrolled / heroHeight, 1);
+          
+          // Zoom out effect as user scrolls
+          const scale = 1 - (progress * 0.3);
+          const blur = progress * 5;
+          const opacity = 1 - (progress * 0.8);
+          
+          heroContent.style.transform = `scale(${scale}) translateY(${scrolled * 0.3}px)`;
+          heroContent.style.opacity = opacity;
+          heroContent.style.filter = `blur(${blur}px)`;
+          
+          // Core spins faster as you scroll
+          auraCore.style.animationDuration = `${20 - (progress * 15)}s`;
+        }, { passive: true });
+      }
+      
+      // ========== Mouse Move Parallax (subtle) ==========
+      let mouseX = 0;
+      let mouseY = 0;
+      let currentX = 0;
+      let currentY = 0;
+      
+      document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX - window.innerWidth / 2) / 50;
+        mouseY = (e.clientY - window.innerHeight / 2) / 50;
+      });
+      
+      function animateMouse() {
+        // Smooth interpolation
+        currentX += (mouseX - currentX) * 0.05;
+        currentY += (mouseY - currentY) * 0.05;
+        
+        const orbs = document.querySelectorAll('.orb');
+        orbs.forEach((orb, i) => {
+          const factor = (i + 1) * 0.5;
+          orb.style.transform = `translate(${currentX * factor}px, ${currentY * factor}px)`;
+        });
+        
+        requestAnimationFrame(animateMouse);
+      }
+      animateMouse();
+      
+      // ========== Tension Button Effect ==========
+      const tensionButtons = document.querySelectorAll('.tension-button');
+      tensionButtons.forEach(btn => {
+        btn.addEventListener('mousedown', () => {
+          btn.style.transform = 'scale(0.95)';
+        });
+        btn.addEventListener('mouseup', () => {
+          btn.style.transform = 'scale(1)';
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = 'scale(1)';
+        });
+      });
+      
+      // ========== Smooth Section Transitions ==========
+      const sections = document.querySelectorAll('section');
+      
+      const sectionTransitionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('section-visible');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      sections.forEach(section => {
+        section.classList.add('section-transition');
+        sectionTransitionObserver.observe(section);
+      });
+    });
+  </script>
+</body>
+</html>

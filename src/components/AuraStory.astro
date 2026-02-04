@@ -1,0 +1,392 @@
+---
+// The AURA Story - Autonomous Intelligence Section
+---
+
+<section id="story" class="story-section reveal-section">
+  <div class="section-header">
+    <span class="section-tag reveal-item" data-delay="0">
+      <i data-lucide="ghost" class="tag-icon"></i>
+      The Silent Partner
+    </span>
+    <h2 class="section-title reveal-item" data-delay="100">It Works While You Don't</h2>
+    <p class="section-subtitle reveal-item" data-delay="200">Delegate once. Forget. Get called back when it's done.</p>
+  </div>
+  
+  <!-- Story Timeline -->
+  <div class="story-timeline">
+    <!-- Scene 1: The Handoff -->
+    <div class="story-scene reveal-item" data-delay="300">
+      <div class="scene-visual glass">
+        <div class="scene-icon-wrapper">
+          <i data-lucide="message-square-plus" class="scene-icon text-halo"></i>
+        </div>
+        <div class="scene-pulse"></div>
+      </div>
+      <div class="scene-content">
+        <span class="scene-time">Morning</span>
+        <h3 class="scene-title">"Book my dentist next week"</h3>
+        <p class="scene-desc">You drop a task. That's it. No follow-ups needed. No micromanagement. Just one sentence and you're done.</p>
+      </div>
+      <div class="scene-connector">
+        <div class="connector-line"></div>
+        <i data-lucide="chevron-down" class="connector-arrow"></i>
+      </div>
+    </div>
+    
+    <!-- Scene 2: The Shadow Work -->
+    <div class="story-scene reveal-item" data-delay="500">
+      <div class="scene-visual glass working">
+        <div class="scene-icon-wrapper">
+          <i data-lucide="brain" class="scene-icon text-tether"></i>
+        </div>
+        <div class="work-particles">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="scene-content">
+        <span class="scene-time">Background</span>
+        <h3 class="scene-title">AURA Goes to Work</h3>
+        <p class="scene-desc">While you live your life, AURA silently analyzes your calendar, identifies the perfect time slots, checks for conflicts with your gym schedule, and finds an opening that won't mess up your Thursday.</p>
+        <div class="work-badges">
+          <span class="work-badge glass"><i data-lucide="calendar-search"></i> Calendar Scan</span>
+          <span class="work-badge glass"><i data-lucide="route"></i> Conflict Check</span>
+          <span class="work-badge glass"><i data-lucide="map-pin"></i> Location Aware</span>
+        </div>
+      </div>
+      <div class="scene-connector">
+        <div class="connector-line"></div>
+        <i data-lucide="chevron-down" class="connector-arrow"></i>
+      </div>
+    </div>
+    
+    <!-- Scene 3: The Callback -->
+    <div class="story-scene reveal-item" data-delay="700">
+      <div class="scene-visual glass callback">
+        <div class="scene-icon-wrapper">
+          <i data-lucide="phone-call" class="scene-icon text-heartbeat"></i>
+        </div>
+        <div class="callback-ring"></div>
+      </div>
+      <div class="scene-content">
+        <span class="scene-time">Later</span>
+        <h3 class="scene-title">AURA Calls You Back</h3>
+        <p class="scene-desc">"Hey boss, I've booked Dr. Smith for Tuesday at 3 PM. It's right after your meeting with Design, so you'll have time. I've added it to your calendar and set a reminder."</p>
+        <div class="callback-preview glass">
+          <div class="callback-avatar">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <div class="callback-text">
+            <span class="callback-label">AURA • Just now</span>
+            <span class="callback-message">Task complete. Dentist booked. ✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- How It Works -->
+  <div class="story-mechanics reveal-item" data-delay="900">
+    <h3 class="mechanics-title">The Secret: Supermemory</h3>
+    <p class="mechanics-desc">AURA doesn't just schedule. It <em>learns</em> you.</p>
+    
+    <div class="mechanics-grid">
+      <div class="mechanic-card glass">
+        <i data-lucide="clock" class="mechanic-icon text-halo"></i>
+        <h4>Knows Your Rhythms</h4>
+        <p>You hate early mornings. AURA knows. It'll never schedule before 10 AM unless you specifically ask.</p>
+      </div>
+      <div class="mechanic-card glass">
+        <i data-lucide="user-check" class="mechanic-icon text-tether"></i>
+        <h4>Learns Your Preferences</h4>
+        <p>You prefer video calls over phone. Window seats over aisle. AURA remembers every little detail.</p>
+      </div>
+      <div class="mechanic-card glass">
+        <i data-lucide="shield-check" class="mechanic-icon text-heartbeat"></i>
+        <h4>Protects Your Time</h4>
+        <p>Someone tries to book during family dinner? AURA politely declines. Your boundaries are sacred.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .story-section {
+    padding: var(--space-4xl) var(--space-xl);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .story-timeline {
+    position: relative;
+    margin: var(--space-3xl) 0;
+  }
+  
+  .story-scene {
+    display: flex;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+    position: relative;
+  }
+  
+  .scene-visual {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xl);
+  }
+  
+  .scene-icon-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .scene-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .scene-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid var(--halo);
+    opacity: 0;
+    animation: scene-ping 2s ease-out infinite;
+  }
+  
+  @keyframes scene-ping {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+  
+  .scene-visual.working .work-particles span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--tether);
+    border-radius: 50%;
+    animation: particle-orbit 3s linear infinite;
+  }
+  
+  .work-particles span:nth-child(1) { animation-delay: 0s; }
+  .work-particles span:nth-child(2) { animation-delay: 0.75s; }
+  .work-particles span:nth-child(3) { animation-delay: 1.5s; }
+  .work-particles span:nth-child(4) { animation-delay: 2.25s; }
+  
+  @keyframes particle-orbit {
+    0% { transform: rotate(0deg) translateX(50px) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); opacity: 0; }
+  }
+  
+  .scene-visual.callback .callback-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid var(--heartbeat);
+    animation: ring-pulse 1s ease-in-out infinite;
+  }
+  
+  @keyframes ring-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+  
+  .scene-content {
+    flex: 1;
+  }
+  
+  .scene-time {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .scene-title {
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    margin: var(--space-xs) 0 var(--space-sm);
+    color: var(--gray-100);
+  }
+  
+  .scene-desc {
+    color: var(--gray-400);
+    line-height: 1.7;
+  }
+  
+  .work-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+  
+  .work-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.75rem;
+    border-radius: var(--radius-full);
+    color: var(--gray-300);
+  }
+  
+  .work-badge i {
+    width: 14px;
+    height: 14px;
+    color: var(--tether);
+  }
+  
+  .scene-connector {
+    position: absolute;
+    left: 50px;
+    bottom: -40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .connector-line {
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--gray-700), transparent);
+  }
+  
+  .connector-arrow {
+    width: 16px;
+    height: 16px;
+    color: var(--gray-600);
+    animation: arrow-bounce 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes arrow-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+  
+  .callback-preview {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    margin-top: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border-color: var(--heartbeat);
+    background: rgba(255, 77, 109, 0.05);
+  }
+  
+  .callback-avatar {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--heartbeat);
+    border-radius: var(--radius-md);
+  }
+  
+  .callback-avatar i {
+    width: 20px;
+    height: 20px;
+    color: var(--void);
+  }
+  
+  .callback-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .callback-label {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+  }
+  
+  .callback-message {
+    font-weight: 500;
+    color: var(--gray-100);
+  }
+  
+  /* Mechanics Section */
+  .story-mechanics {
+    margin-top: var(--space-4xl);
+    text-align: center;
+  }
+  
+  .mechanics-title {
+    font-family: var(--font-headline);
+    font-size: 1.75rem;
+    margin-bottom: var(--space-sm);
+    background: linear-gradient(135deg, var(--gray-100), var(--halo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .mechanics-desc {
+    color: var(--gray-400);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .mechanics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    text-align: left;
+  }
+  
+  .mechanic-card {
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+  }
+  
+  .mechanic-icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: var(--space-md);
+  }
+  
+  .mechanic-card h4 {
+    font-size: 1rem;
+    margin-bottom: var(--space-sm);
+    color: var(--gray-100);
+  }
+  
+  .mechanic-card p {
+    font-size: 0.875rem;
+    color: var(--gray-400);
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .story-scene {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .scene-visual {
+      margin: 0 auto;
+    }
+    
+    .scene-connector {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .work-badges {
+      justify-content: center;
+    }
+    
+    .callback-preview {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

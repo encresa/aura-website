@@ -1,0 +1,42 @@
+---
+// Architecture Section - Updated to show AURA Router instead of Gemini
+const layers = [
+  { title: 'Frontend', tech: 'Flutter (iOS, Android, Web)', icon: 'smartphone' },
+  { title: 'Backend', tech: 'Python (FastAPI) + MCP Server', icon: 'server' },
+  { title: 'AI Engine', tech: 'AURA Router + Hybrid Brain', icon: 'brain-circuit', featured: true },
+  { title: 'Data Layer', tech: 'PostgreSQL + pgvector + Redis', icon: 'database' },
+  { title: 'Infrastructure', tech: 'Kubernetes + Authentik IDP', icon: 'cloud' },
+];
+---
+
+<section id="architecture" class="architecture-section reveal-section">
+  <div class="section-header">
+    <span class="section-tag reveal-item" data-delay="0">
+      <i data-lucide="layers" class="tag-icon"></i>
+      Cloud-Native
+    </span>
+    <h2 class="section-title reveal-item" data-delay="100">Built for Scale</h2>
+    <p class="section-subtitle reveal-item" data-delay="200">Enterprise-grade architecture from day one.</p>
+  </div>
+  
+  <div class="architecture-stack">
+    {layers.map((layer, index) => (
+      <>
+        <div class={`stack-layer glass reveal-item ${layer.featured ? 'featured' : ''}`} data-delay={300 + index * 150}>
+          <div class="layer-icon">
+            <i data-lucide={layer.icon} class={`icon ${layer.featured ? 'text-halo' : ''}`}></i>
+          </div>
+          <div class="layer-content">
+            <h4 class="layer-title">{layer.title}</h4>
+            <p class="layer-tech">{layer.tech}</p>
+          </div>
+        </div>
+        {index < layers.length - 1 && (
+          <div class="stack-arrow reveal-item" data-delay={350 + index * 150}>
+            <i data-lucide="arrow-down" class="arrow-icon"></i>
+          </div>
+        )}
+      </>
+    ))}
+  </div>
+</section>

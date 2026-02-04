@@ -1,0 +1,27 @@
+---
+// Voice Interface Section - The Seduction (with reveal animations)
+---
+
+<section id="voice" class="voice-section reveal-section">
+  <div class="section-header">
+    <span class="section-tag reveal-item" data-delay="0">
+      <i data-lucide="mic" class="tag-icon"></i>
+      Voice Interface
+    </span>
+    <h2 class="section-title reveal-item" data-delay="100">Talk. AURA Listens.</h2>
+    <p class="section-subtitle reveal-item" data-delay="200">Natural voice interaction powered by Kokoro & ElevenLabs.</p>
+  </div>
+  
+  <div class="voice-visualizer reveal-item" data-delay="300">
+    <div class="waveform">
+      {Array.from({ length: 15 }).map(() => (
+        <div class="wave-bar"></div>
+      ))}
+    </div>
+    <p class="voice-quote">"Schedule cleared, Boss. What's next?"</p>
+    <button class="btn btn-voice glass">
+      <i data-lucide="volume-2" class="btn-icon"></i>
+      <span>Listen to AURA</span>
+    </button>
+  </div>
+</section>

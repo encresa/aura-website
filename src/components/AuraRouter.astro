@@ -1,0 +1,286 @@
+---
+// AURA Router Section - Intelligent Routing Engine
+---
+
+<section id="router" class="router-section reveal-section">
+  <div class="section-header">
+    <span class="section-tag reveal-item" data-delay="0">
+      <i data-lucide="route" class="tag-icon"></i>
+      Intelligent Routing
+    </span>
+    <h2 class="section-title reveal-item" data-delay="100">The AURA Router</h2>
+    <p class="section-subtitle reveal-item" data-delay="200">A semantic orchestrator that knows exactly which brain to activate.</p>
+  </div>
+  
+  <div class="router-visualization">
+    <!-- Input Node -->
+    <div class="router-node input-node reveal-item" data-delay="300">
+      <div class="node-icon glass">
+        <i data-lucide="message-circle" class="icon"></i>
+      </div>
+      <span class="node-label">Your Request</span>
+    </div>
+    
+    <!-- Router Core -->
+    <div class="router-core reveal-item" data-delay="400">
+      <div class="core-wrapper glass">
+        <div class="router-brain">
+          <i data-lucide="brain-circuit" class="brain-icon text-halo"></i>
+        </div>
+        <div class="router-pulse"></div>
+      </div>
+      <span class="core-label">AURA Router</span>
+      <p class="core-desc">Semantic Analysis • Intent Classification • Model Selection</p>
+    </div>
+    
+    <!-- Output Paths -->
+    <div class="router-paths reveal-item" data-delay="500">
+      <div class="path-item">
+        <div class="path-connector"></div>
+        <div class="path-node glass">
+          <i data-lucide="zap" class="path-icon text-halo"></i>
+          <span class="path-title">Fast Track</span>
+          <span class="path-time">&lt;50ms</span>
+        </div>
+        <p class="path-desc">Simple queries, cached responses, quick actions</p>
+      </div>
+      
+      <div class="path-item">
+        <div class="path-connector"></div>
+        <div class="path-node glass featured">
+          <i data-lucide="sparkles" class="path-icon text-tether"></i>
+          <span class="path-title">Deep Think</span>
+          <span class="path-time">~500ms</span>
+        </div>
+        <p class="path-desc">Complex reasoning, multi-step planning, analysis</p>
+      </div>
+      
+      <div class="path-item">
+        <div class="path-connector"></div>
+        <div class="path-node glass">
+          <i data-lucide="wrench" class="path-icon text-heartbeat"></i>
+          <span class="path-title">Agentic</span>
+          <span class="path-time">Action-Based</span>
+        </div>
+        <p class="path-desc">Tool execution, calendar, email, integrations</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="router-features">
+    <div class="feature-card glass reveal-item" data-delay="600">
+      <i data-lucide="gauge" class="feature-icon"></i>
+      <h4 class="feature-title">Latency Optimization</h4>
+      <p class="feature-desc">Routes simple queries to fast models, saving milliseconds where they matter.</p>
+    </div>
+    <div class="feature-card glass reveal-item" data-delay="700">
+      <i data-lucide="brain" class="feature-icon"></i>
+      <h4 class="feature-title">Semantic Understanding</h4>
+      <p class="feature-desc">Analyzes intent, context, and complexity to choose the optimal path.</p>
+    </div>
+    <div class="feature-card glass reveal-item" data-delay="800">
+      <i data-lucide="shuffle" class="feature-icon"></i>
+      <h4 class="feature-title">Dynamic Fallback</h4>
+      <p class="feature-desc">Automatically escalates to deeper reasoning when simple responses fail.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .router-section {
+    padding: var(--space-4xl) var(--space-xl);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .router-visualization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-4xl);
+  }
+  
+  .router-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  
+  .node-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+  }
+  
+  .node-icon .icon {
+    width: 28px;
+    height: 28px;
+    color: var(--gray-200);
+  }
+  
+  .node-label {
+    font-size: 0.9rem;
+    color: var(--gray-400);
+  }
+  
+  .router-core {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+  
+  .core-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border-color: var(--halo);
+    background: rgba(0, 240, 255, 0.05);
+  }
+  
+  .router-brain {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .brain-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .router-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid var(--halo);
+    opacity: 0.3;
+    animation: pulse-ring 2s ease-out infinite;
+  }
+  
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.3; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+  
+  .core-label {
+    font-family: var(--font-headline);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--halo);
+  }
+  
+  .core-desc {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gray-500);
+  }
+  
+  .router-paths {
+    display: flex;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .path-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    max-width: 200px;
+  }
+  
+  .path-connector {
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--halo), transparent);
+  }
+  
+  .path-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-lg);
+    border-radius: var(--radius-xl);
+    min-width: 140px;
+    text-align: center;
+  }
+  
+  .path-node.featured {
+    border-color: var(--tether);
+    box-shadow: 0 0 30px var(--tether-glow);
+  }
+  
+  .path-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .path-title {
+    font-family: var(--font-headline);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--gray-100);
+  }
+  
+  .path-time {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gray-400);
+  }
+  
+  .path-desc {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    text-align: center;
+  }
+  
+  .router-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+  
+  .feature-card {
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    text-align: center;
+  }
+  
+  .feature-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--halo);
+    margin-bottom: var(--space-md);
+  }
+  
+  .feature-title {
+    font-size: 1rem;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .feature-desc {
+    font-size: 0.875rem;
+    color: var(--gray-400);
+  }
+  
+  @media (max-width: 768px) {
+    .router-paths {
+      flex-direction: column;
+    }
+    
+    .path-item {
+      max-width: 100%;
+    }
+  }
+</style>

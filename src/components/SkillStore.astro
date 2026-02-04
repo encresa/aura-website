@@ -1,0 +1,75 @@
+---
+// Tool Store Section - Agentic Tools (renamed from Skills)
+const tools = [
+  { 
+    name: 'Google Calendar', 
+    desc: 'Smart Scheduling', 
+    icon: 'calendar-check',
+    status: 'connected',
+    statusText: 'Connected'
+  },
+  { 
+    name: 'GitHub', 
+    desc: 'Dev Loop Automation', 
+    icon: 'github',
+    status: 'available',
+    statusText: 'Available'
+  },
+  { 
+    name: 'Gmail', 
+    desc: 'Inbox Zero', 
+    icon: 'mail',
+    status: 'available',
+    statusText: 'Available'
+  },
+  { 
+    name: 'Terminal', 
+    desc: 'System Commands', 
+    icon: 'terminal',
+    status: 'available',
+    statusText: 'Available'
+  },
+  { 
+    name: 'Linear', 
+    desc: 'Task Tracking', 
+    icon: 'list-todo',
+    status: 'available',
+    statusText: 'Available'
+  },
+  { 
+    name: 'MCP Protocol', 
+    desc: 'Infinite Extensibility', 
+    icon: 'brain-circuit',
+    status: 'featured',
+    statusText: 'Core',
+    featured: true
+  },
+];
+---
+
+<section id="tools" class="skills-section reveal-section">
+  <div class="section-header">
+    <span class="section-tag reveal-item" data-delay="0">
+      <i data-lucide="sparkles" class="tag-icon"></i>
+      Agentic Tools
+    </span>
+    <h2 class="section-title reveal-item" data-delay="100">The Tool Store</h2>
+    <p class="section-subtitle reveal-item" data-delay="200">A weapon rack of tools your AI can wield.</p>
+  </div>
+  
+  <div class="skills-grid">
+    {tools.map((tool, index) => (
+      <div class={`skill-card glass jelly reveal-item ${tool.featured ? 'featured' : ''}`} data-delay={300 + index * 100}>
+        <div class="skill-icon-wrapper">
+          <i data-lucide={tool.icon} class={`skill-icon ${tool.featured ? 'text-halo' : ''}`}></i>
+        </div>
+        <h3 class="skill-name">{tool.name}</h3>
+        <p class="skill-desc">{tool.desc}</p>
+        <div class={`skill-status ${tool.status}`}>
+          <i data-lucide={tool.status === 'connected' ? 'check-circle' : tool.status === 'featured' ? 'infinity' : 'plug'} class="status-icon"></i>
+          {tool.statusText}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
