@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "echo '🚀 Deployment is automated! Just commit and push to main to deploy to GitHub Pages.'"
   },
   "dependencies": {
     "astro": "^5.17.1"
